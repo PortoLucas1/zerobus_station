@@ -1,0 +1,2 @@
+"""Station Two protobuf schema."""
+

@@ -1,0 +1,29 @@
+# app.yaml
+
+# Use a custom command to start the FastAPI app with Uvicorn
+command: 
+  - uvicorn
+  - app:app
+  - --host
+  - 0.0.0.0
+  - --port
+  - "8000"
+
+# Environment variables your app needs
+env:
+
+  # Databricks/Zerobus config file path inside the app
+  - name: CONFIG_JSON_PATH
+    value: "./config.json"
+
+  # Enable loading from .env (if needed)
+  - name: DOTENV_FILE
+    value: "./.env"
+
+  # FastAPI config — optional example
+  #- name: FASTAPI_ENV
+  #  value: "production"
+
+  # Example: extra settings for logging or AWS/GCP credentials
+  # - name: LOG_LEVEL
+  #   value: "INFO"

@@ -1,0 +1,30 @@
+{
+  "databricks": {
+    "server_endpoint": "YOUR_WORKSPACE_ID.zerobus.REGION.cloud.databricks.com",
+    "workspace_id": "YOUR_WORKSPACE_ID",
+    "workspace_url": "https://YOUR_WORKSPACE.cloud.databricks.com"
+  },
+  "tables": {
+    "station_one": {
+      "table_name": "YOUR_CATALOG.YOUR_SCHEMA.station_one",
+      "proto_package": "station_one",
+      "message_name": "StationOne",
+      "fields": [
+        {"name": "device_name", "type": "string", "proto_type": "optional string", "field_num": 1},
+        {"name": "temp", "type": "int32", "proto_type": "optional int32", "field_num": 2},
+        {"name": "humidity", "type": "int64", "proto_type": "optional int64", "field_num": 3}
+      ]
+    },
+    "station_two": {
+      "table_name": "YOUR_CATALOG.YOUR_SCHEMA.station_two",
+      "proto_package": "station_two",
+      "message_name": "StationTwo",
+      "fields": [
+        {"name": "device_name", "type": "string", "proto_type": "optional string", "field_num": 1},
+        {"name": "temp", "type": "int32", "proto_type": "optional int32", "field_num": 2},
+        {"name": "humidity", "type": "int64", "proto_type": "optional int64", "field_num": 3},
+        {"name": "description", "type": "string", "proto_type": "optional string", "field_num": 4}
+      ]
+    }
+  }
+}
