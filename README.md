@@ -89,17 +89,25 @@ cp config.example.json config.json
 # Edit config.json with your workspace details and replace YOUR_CATALOG/YOUR_SCHEMA
 ```
 
-### 4. Install and Run
+### 4. Set Up Virtual Environment and Install Dependencies
 
 ```bash
+# Create and activate virtual environment
+uv venv
+source .venv/bin/activate  # On macOS/Linux (.venv\Scripts\activate on Windows)
+
 # Install dependencies
 uv sync
+```
 
-# Run the service
+### 5. Run the Service
+
+```bash
+# Run the service (make sure virtual environment is activated)
 uvicorn app:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### 5. Test the Endpoints
+### 6. Test the Endpoints
 
 ```bash
 # Test station_one
@@ -127,23 +135,51 @@ curl -X POST http://localhost:8000/ingest/station_two \
 
 ### Installation
 
-1. **Install dependencies:**
+1. **Set up virtual environment:**
+
+Using `uv` (recommended):
+```bash
+# Create virtual environment
+uv venv
+
+# Activate the virtual environment
+source .venv/bin/activate  # On macOS/Linux
+# OR
+.venv\Scripts\activate  # On Windows
+```
+
+Or using standard Python `venv`:
+```bash
+# Create virtual environment
+python3 -m venv .venv
+
+# Activate the virtual environment
+source .venv/bin/activate  # On macOS/Linux
+# OR
+.venv\Scripts\activate  # On Windows
+```
+
+Once activated, your terminal prompt should show `(.venv)` at the beginning.
+
+2. **Install dependencies:**
+
+Using `uv` (recommended):
+```bash
+uv sync
+```
+
+Or using `pip`:
 ```bash
 pip install fastapi uvicorn python-dotenv
 pip install databricks_zerobus-0.0.17-py3-none-any.whl
 ```
 
-Or using `uv`:
-```bash
-uv sync
-```
-
-2. **Create a `.env` file from the example:**
+3. **Create a `.env` file from the example:**
 ```bash
 cp .env.example .env
 ```
 
-Then edit `.env` with your credentials:
+4. **Edit `.env` with your credentials:**
 ```bash
 DATABRICKS_CLIENT_ID=your-service-principal-id
 DATABRICKS_CLIENT_SECRET=your-service-principal-secret
